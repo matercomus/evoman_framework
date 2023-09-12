@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "evoman-framework"
+version = "0.1.0"
+description = ""
+authors = ["matercomus <matek.kedzia@gmail.com>"]
+readme = "README.md"
+packages = [{include = "evoman_framework"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+deap = "^1.4.1"
+numpy = "^1.25.2"
+pygame = "^2.5.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
