@@ -1,7 +1,7 @@
 ###############################################################################
 # EvoMan FrameWork - V1.0 2016  			                                  #
 # DEMO : Neuroevolution - Genetic Algorithm  neural network.                  #
-# Author: Mateusz Kedzia        			                                      #
+# Author: Mateusz Kedzia        			                                  #
 ###############################################################################
 
 # imports framework
@@ -60,3 +60,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
