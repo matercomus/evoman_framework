@@ -1,8 +1,7 @@
 ###############################################################################
 # EvoMan FrameWork - V1.0 2016  			                                  #
 # DEMO : Neuroevolution - Genetic Algorithm  neural network.                  #
-# Author: Karine Miras        			                                      #
-# karine.smiras@gmail.com     				                                  #
+# Author: Mateusz Kedzia        			                                  #
 ###############################################################################
 
 # imports framework
@@ -15,14 +14,16 @@ from demo_controller import player_controller
 import numpy as np
 import os
 
+
 # runs simulation
-def simulation(env,x):
-    f,p,e,t = env.play(pcont=x)
+def simulation(env, x):
+    f, p, e, t = env.play(pcont=x)
     return f
+
 
 # evaluation
 def evaluate(env, x):
-    return np.array(list(map(lambda y: simulation(env,y), x)))
+    return np.array(list(map(lambda y: simulation(env, y), x)))
 
 
 def main():
@@ -31,30 +32,31 @@ def main():
     if headless:
         os.environ["SDL_VIDEODRIVER"] = "dummy"
 
-
-    experiment_name = 'optimization_test_Matt'
+    experiment_name = "optimization_test_Matt"
     if not os.path.exists(experiment_name):
         os.makedirs(experiment_name)
 
     n_hidden_neurons = 10
 
     # initializes simulation in individual evolution mode, for single static enemy.
-    env = Environment(experiment_name=experiment_name,
-                    enemies=[2],
-                    playermode="ai",
-                    player_controller=player_controller(n_hidden_neurons), # you  can insert your own controller here
-                    enemymode="static",
-                    level=2,
-                    speed="fastest",
-                    visuals=False)
-
+    env = Environment(
+        experiment_name=experiment_name,
+        enemies=[2],
+        playermode="ai",
+        player_controller=player_controller(
+            n_hidden_neurons
+        ),  # you  can insert your own controller here
+        enemymode="static",
+        level=2,
+        speed="fastest",
+        visuals=False,
+    )
 
     # number of weights for multilayer with 10 hidden neurons
-    n_vars = (env.get_num_sensors()+1)*n_hidden_neurons + (n_hidden_neurons+1)*5
+    n_vars = (env.get_num_sensors() + 1) * n_hidden_neurons + (n_hidden_neurons + 1) * 5
 
     # start writing your own code from here
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
